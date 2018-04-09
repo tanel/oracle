@@ -1,0 +1,23 @@
+body {
+	font-family: cursive;
+	font-size: 30px;
+	margin: 10%;
+}
+
+.hidden {
+	display: none;
+}
+
+input[type="text"] {
+	height: 24px;
+	width: 50%;			
+}
+
+.submit { 
+	font-family: cursive;
+	font-size: 30px;
+}
+
+.hidden {
+	visibility: hidden;
+}
