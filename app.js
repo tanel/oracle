@@ -1,6 +1,13 @@
 $(function () {
 	var result = $('.result'),
-		entry = $('.entry');
+		entry = $('.entry'),
+		calculation = $('.calculation'),
+		progressBar = calculation.find('.progressbar').progressbar({maximum: 20, step: 1}),
+		percent = 0;
+
+	progressBar.on('positionChanged', function (e) {
+		percent = e.percent;
+	});
 
 	var collectChoices = function () {
 		var inputs = entry.find('input[type="text"]'),
@@ -27,21 +34,46 @@ $(function () {
 		return choices[r];
 	};
 
-	var choose = function (e) {
-		e.preventDefault();
+	var stepIt = function () {
+		progressBar.progressbar('stepIt');
 
-		result.find('h1').text(calculateChoice());
-		entry.addClass('invisible');
-		result.removeClass('invisible');
+		if (percent >= 100) {
+			window.setTimeout(calculationDone, 1000);
+			return;
+		}
+
+		var r = Math.floor(Math.random() * 1000) + 300;
+		window.setTimeout(stepIt, r);
 	};
 
-	var startEntry = function (e) {
+	var startCalculation = function (e) {
+		e.preventDefault();
+
+		entry.addClass('invisible');
+
+		calculation.removeClass('invisible');
+
+		stepIt();
+	};
+
+	var calculationDone = function () {
+		result.find('h1').text(calculateChoice());
+		
+		result.removeClass('invisible');
+
+		calculation.addClass('invisible');
+
+		progressBar.progressbar('setPosition', 0);
+	};
+
+	var restartEntry = function (e) {
 		e.preventDefault();
 
 		entry.removeClass('invisible');
+
 		result.addClass('invisible');
 	};
 
-	entry.find("form").submit(choose);
-	result.find("form").submit(startEntry);
+	entry.find("form").submit(startCalculation);
+	result.find("form").submit(restartEntry);
 });
