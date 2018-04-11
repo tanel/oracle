@@ -11,26 +11,37 @@
 </head>
 <body>
 	<div class="container">
-		<p>The oracle helps you to make decisions. </p>
-		<p>Please enter the possible choices:</p>
-		<form>
-			<div class="form-group">
-				<ul class="list-group">
-					<li class="list-group-item">
-						<input type="text" class="form-control" autofocus required>
-					</li>
-					<li class="list-group-item">
-						<input type="text" class="form-control" required>
-					</li>
-					<li class="list-group-item">
-						<input type="text" class="form-control">
-					</li>
-				</ul>
-			</div>
-			<div class="form-group">
-				<input class="submit btn btn-success" type="submit" value="Let the oracle decide">
-			</div>
-		</form>
+		<div class="entry">
+			<p>The oracle helps you to make decisions. Please enter the possible choices:</p>
+			<form>
+				<div class="form-group">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<input type="text" class="form-control" autofocus required>
+						</li>
+						<li class="list-group-item">
+							<input type="text" class="form-control" required>
+						</li>
+						<li class="list-group-item">
+							<input type="text" class="form-control">
+						</li>
+					</ul>
+				</div>
+				<div class="form-group">
+					<input class="submit btn btn-success" type="submit" value="Let the oracle decide">
+				</div>
+			</form>
+		</div>
+		<div class="result invisible">
+			<p>The oracle has wisely chosen the following:</p>
+			<h1>Do something</h1>
+			<form>
+				<div class="form-group">
+					<a href="" class="btn btn-success">Thank you oracle</a>
+					<input class="submit btn btn-danger" type="submit" value="I'm not 100% satisified with the outcome">
+				</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
