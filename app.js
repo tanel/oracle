@@ -57,7 +57,7 @@ $(function () {
 	};
 
 	var calculationDone = function () {
-		result.find('h1').text(calculateChoice());
+		result.find('blockquote').text(calculateChoice());
 		
 		result.removeClass('invisible');
 
