@@ -2,7 +2,7 @@ $(function () {
 	var result = $('.result'),
 		entry = $('.entry'),
 		calculation = $('.calculation'),
-		progressBar = calculation.find('.progressbar').progressbar({maximum: 20, step: 1}),
+		progressBar = calculation.find('.progressbar').progressbar({maximum: 10, step: 1}),
 		percent = 0;
 
 	progressBar.on('positionChanged', function (e) {
